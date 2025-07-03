@@ -166,7 +166,7 @@
 
     async function fetchFiles() {
       try {
-        const res = await fetch('https://jsonkeeper.com/b/0J71');
+        const res = await fetch('files.json');
         const files = await res.json();
         fileList.innerHTML = '';
         files.forEach(file => {
