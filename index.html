@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRIMEX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 3px;
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+    p {
+      margin-top: 10px;
+      color: #ccc;
+      font-size: 1rem;
+    }
+    .links {
+      margin: 40px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .links a {
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid #555;
+      padding: 12px;
+      text-align: center;
+      border-radius: 15px;
+      color: #fff;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .links a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+    }
+    .links a:hover::before {
+      left: 0;
+    }
+    .links a:hover {
+      border-color: #999;
+    }
+    .file-btn {
+      background: #111;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 12px 24px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .file-btn:hover {
+      background: #222;
+    }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #111;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .file-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 15px;
+    }
+    .file-item h3 {
+      color: #fff;
+    }
+    .file-item a {
+      color: #4fc3f7;
+      text-decoration: underline;
+    }
+    .file-item img {
+      max-width: 100px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff; }
+      to { text-shadow: 0 0 20px #0ff; }
+    }
+  </style>
+</head>
+<body>
+  <h1>𝖯𝖱𝖨𝖬𝖤𝖷</h1>
+  <p>Access is earned, not given.</p>  <div class="links">
+    <a href="https://t.me/YXXVI" target="_blank">Telegram – @YXXVI</a>
+    <a href="https://www.instagram.com/cpuua" target="_blank">Instagram – @cpuua</a>
+    <a href="https://t.me/xithub" target="_blank">XIT HUB</a>
+    <a href="https://t.me/vxwwo" target="_blank">PRIMEX CORE</a>
+  </div><button class="file-btn" onclick="openModal()">⟶ Downloadable Files</button>
+
+  <div class="modal" id="modal">
+    <div class="close" onclick="closeModal()">&times;</div>
+    <div class="modal-content" id="fileList">
+      <p>Loading files...</p>
+    </div>
+  </div>  <script>
+    const modal = document.getElementById('modal');
+    const fileList = document.getElementById('fileList');
+
+    function openModal() {
+      modal.style.display = 'flex';
+      fetchFiles();
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+      fileList.innerHTML = '<p>Loading files...</p>';
+    }
+
+    async function fetchFiles() {
+      try {
+        const res = await fetch('https://jsonkeeper.com/b/0J71');
+        const files = await res.json();
+        fileList.innerHTML = '';
+        files.forEach(file => {
+          const item = document.createElement('div');
+          item.className = 'file-item';
+          item.innerHTML = `
+            <img src="${file.image}" alt="preview" />
+            <h3>${file.title}</h3>
+            <a href="${file.link}" target="_blank">Download</a>
+          `;
+          fileList.appendChild(item);
+        });
+      } catch (err) {
+        fileList.innerHTML = '<p>⚠️ Failed to load files.</p>';
+      }
+    }
+  </script></body>
+</html>
