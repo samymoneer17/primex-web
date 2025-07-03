@@ -1,12 +1,12 @@
 [
   {
     "title": "Primex Tool",
-    "link": "https://example.com/primex.zip",
+    "url": "https://example.com/primex.zip",
     "image": "https://i.imgur.com/example.png"
   },
   {
     "title": "Telegram Bot",
-    "link": "https://example.com/bot.py",
+    "url": "https://example.com/bot.py",
     "image": "https://i.imgur.com/boticon.png"
   }
 ]
