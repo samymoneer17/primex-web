@@ -6,148 +6,209 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>𝖯𝖱𝖨𝖬𝖤𝖷</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #000;
-      --text: #fff;
-      --accent: #0ff;
-      --secondary: #444;
-    }
-    body.light {
-      --bg: #fff;
-      --text: #111;
-      --accent: #007BFF;
-      --secondary: #ccc;
-    }
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      scroll-behavior: smooth;
     }
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Orbitron', sans-serif;
-      transition: background 0.4s, color 0.4s;
-      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: start;
-      padding: 30px 20px;
+      justify-content: center;
+      flex-direction: column;
+      padding: 40px 20px;
     }
     h1 {
-      font-size: 3.5rem;
+      font-size: 4rem;
+      letter-spacing: 4px;
+      animation: glow 1.5s ease-in-out infinite alternate;
       margin-bottom: 10px;
-      animation: glow 1.8s ease-in-out infinite alternate;
     }
-    p.subtitle {
-      font-size: 1rem;
-      color: var(--secondary);
-      margin-bottom: 20px;
-    }
-    .controls {
-      display: flex;
-      gap: 15px;
+    p {
+      color: #888;
       margin-bottom: 30px;
-      flex-wrap: wrap;
+      font-size: 1.1rem;
     }
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      background-color: var(--secondary);
-      color: var(--text);
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-family: 'Inter', sans-serif;
-      transition: 0.3s;
-    }
-    button:hover {
-      background-color: var(--accent);
-      color: #000;
-    }
-    .info-box {
-      background-color: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 15px;
-      border: 1px solid var(--secondary);
-      max-width: 600px;
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
       width: 100%;
-      margin-bottom: 20px;
-      text-align: center;
+      max-width: 400px;
     }
-    .info-box h2 {
-      font-size: 1.3rem;
+    .links a {
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid #555;
+      padding: 12px;
+      text-align: center;
+      border-radius: 15px;
+      color: #fff;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .links a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.1);
+      transition: all 0.4s ease;
+    }
+    .links a:hover::before {
+      left: 0;
+    }
+    .links a:hover {
+      border-color: #999;
+    }
+    .file-btn {
+      background: #111;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 12px 24px;
+      border-radius: 15px;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background 0.3s ease;
+    }
+    .file-btn:hover {
+      background: #222;
+    }
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      flex-direction: column;
+      padding: 30px;
+    }
+    .modal-content {
+      max-width: 900px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      background: #111;
+      padding: 25px;
+      border-radius: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .file-item {
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 15px;
+      border: 1px solid #333;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .file-item:hover {
+      transform: translateY(-5px);
+      border-color: #555;
+    }
+    .file-item img {
+      max-width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
       margin-bottom: 10px;
     }
-    .info-box p {
-      font-size: 0.95rem;
-      line-height: 1.5;
+    .file-item h3 {
+      margin: 10px 0;
+      font-size: 1.1rem;
+      color: #fff;
     }
-    .footer {
-      margin-top: auto;
-      padding: 20px 0;
-      color: var(--secondary);
-      font-size: 0.85rem;
+    .file-item a {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2.5rem;
+      color: #fff;
+      cursor: pointer;
     }
     @keyframes glow {
-      from { text-shadow: 0 0 10px var(--accent); }
-      to   { text-shadow: 0 0 25px var(--accent); }
+      from { text-shadow: 0 0 10px #0ff; }
+      to   { text-shadow: 0 0 25px #0ff; }
     }
-    @media (max-width: 600px) {
+    @media(max-width: 600px) {
       h1 {
         font-size: 2.5rem;
-      }
-      .controls {
-        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
   <h1>𝖯𝖱𝖨𝖬𝖤𝖷</h1>
-  <p class="subtitle">Access is earned, not given.</p>
+  <p>Access is earned, not given.</p>
 
-  <div class="controls">
-    <button onclick="toggleTheme()">☀️ / 🌙 Mode</button>
-    <button onclick="changeText('elite')">Elite Quote</button>
-    <button onclick="changeText('tech')">Tech Quote</button>
-    <button onclick="changeText('life')">Life Quote</button>
+  <div class="links">
+    <a href="https://t.me/YXXVI" target="_blank">Telegram – @YXXVI</a>
+    <a href="https://www.instagram.com/cpuua" target="_blank">Instagram – @cpuua</a>
+    <a href="https://t.me/xithub" target="_blank">XIT HUB</a>
+    <a href="https://t.me/vxwwo" target="_blank">PRIMEX CORE</a>
   </div>
 
-  <div class="info-box" id="info">
-    <h2>Welcome to PRIMEX</h2>
-    <p>This space is reserved for the bold, the curious, and the extraordinary minds. Use the buttons above to explore themes.</p>
-  </div>
+  <button class="file-btn" onclick="openModal()">⟶ Downloadable Files</button>
 
-  <footer class="footer">
-    &copy; 2025 PRIMEX. Designed with precision.
-  </footer>
+  <div class="modal" id="modal">
+    <div class="close" onclick="closeModal()">&times;</div>
+    <div class="modal-content" id="fileList">
+      <p style="color: white;">Loading files...</p>
+    </div>
+  </div>
 
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light');
+    const modal = document.getElementById('modal');
+    const fileList = document.getElementById('fileList');
+
+    function openModal() {
+      modal.style.display = 'flex';
+      fetchFiles();
     }
 
-    function changeText(type) {
-      const box = document.getElementById('info');
-      const data = {
-        elite: {
-          title: 'Elite Mindset',
-          text: 'Discipline is the bridge between goals and accomplishment. Access is earned, not given.'
-        },
-        tech: {
-          title: 'Tech Vision',
-          text: 'Innovation is seeing what everybody has seen and thinking what nobody has thought.'
-        },
-        life: {
-          title: 'Life Philosophy',
-          text: 'Simplicity is the ultimate sophistication. Move quiet, strike loud.'
-        }
-      };
-      box.innerHTML = `<h2>${data[type].title}</h2><p>${data[type].text}</p>`;
+    function closeModal() {
+      modal.style.display = 'none';
+      fileList.innerHTML = '<p style="color:white;">Loading files...</p>';
+    }
+
+    async function fetchFiles() {
+      try {
+        const res = await fetch('files.json');
+        const files = await res.json();
+        fileList.innerHTML = '';
+        files.forEach(file => {
+          const item = document.createElement('div');
+          item.className = 'file-item';
+          item.innerHTML = `
+            <img src="${file.image}" alt="preview" />
+            <h3>${file.title}</h3>
+            <a href="${file.url}" target="_blank">Download</a>
+          `;
+          fileList.appendChild(item);
+        });
+      } catch (err) {
+        fileList.innerHTML = '<p style="color:red;">⚠️ Failed to load files.</p>';
+      }
     }
   </script>
 </body>
