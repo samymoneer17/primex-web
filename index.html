@@ -1,183 +1,166 @@
-<!-- by primex | Verified by the developer primex -->
-<!DOCTYPE html>
-<html lang="en">
+<!-- by primex | Verified by the developer primex --><!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>𝖯𝖱𝖨𝖬𝖤𝖷</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      width: 100%;
-      height: 100%;
-      background: #000;
-      color: #fff;
-      font-family: 'Orbitron', sans-serif;
-      scroll-behavior: smooth;
-    }
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 40px 20px;
-    }
-    h1 {
-      font-size: 4rem;
-      letter-spacing: 4px;
-      animation: glow 1.5s ease-in-out infinite alternate;
-      margin-bottom: 10px;
-    }
-    p {
-      color: #888;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-    }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      max-width: 400px;
-    }
-    .links a {
-      text-decoration: none;
-      background: transparent;
-      border: 1px solid #555;
-      padding: 12px;
-      text-align: center;
-      border-radius: 15px;
-      color: #fff;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .links a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(255,255,255,0.1);
-      transition: all 0.4s ease;
-    }
-    .links a:hover::before {
-      left: 0;
-    }
-    .links a:hover {
-      border-color: #999;
-    }
-    .file-btn {
-      background: #111;
-      color: #fff;
-      border: 1px solid #555;
-      padding: 12px 24px;
-      border-radius: 15px;
-      cursor: pointer;
-      margin-top: 30px;
-      transition: background 0.3s ease;
-    }
-    .file-btn:hover {
-      background: #222;
-    }
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      flex-direction: column;
-      padding: 30px;
-    }
-    .modal-content {
-      max-width: 900px;
-      width: 100%;
-      max-height: 80vh;
-      overflow-y: auto;
-      background: #111;
-      padding: 25px;
-      border-radius: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .file-item {
-      background: #1a1a1a;
-      padding: 15px;
-      border-radius: 15px;
-      border: 1px solid #333;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .file-item:hover {
-      transform: translateY(-5px);
-      border-color: #555;
-    }
-    .file-item img {
-      max-width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-    .file-item h3 {
-      margin: 10px 0;
-      font-size: 1.1rem;
-      color: #fff;
-    }
-    .file-item a {
-      color: #4fc3f7;
-      text-decoration: none;
-    }
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2.5rem;
-      color: #fff;
-      cursor: pointer;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #0ff; }
-      to   { text-shadow: 0 0 25px #0ff; }
-    }
-    @media(max-width: 600px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-    }
+    :root {
+      --bg: #f7f7f7;
+      --card: #ffffff;
+      --text: #111;
+      --subtext: #555;
+      --primary: #007aff;
+      --radius: 20px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.06);
+    }* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+p.subtitle {
+  font-size: 1rem;
+  color: var(--subtext);
+  margin-bottom: 30px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.links a {
+  text-decoration: none;
+  background: var(--card);
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease;
+  color: var(--text);
+}
+
+.links a:hover {
+  transform: scale(1.02);
+}
+
+.file-btn {
+  margin-top: 35px;
+  padding: 14px 28px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-shadow: var(--shadow);
+}
+
+.file-btn:hover {
+  background: #005fcc;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: var(--card);
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.file-item {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.file-item img {
+  max-width: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.file-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.file-item a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+@media(max-width: 500px) {
+  h1 { font-size: 2rem; }
+}
+
   </style>
 </head>
 <body>
   <h1>𝖯𝖱𝖨𝖬𝖤𝖷</h1>
-  <p>Access is earned, not given.</p>
-
-  <div class="links">
-    <a href="https://t.me/YXXVI" target="_blank">Telegram – @YXXVI</a>
-    <a href="https://www.instagram.com/cpuua" target="_blank">Instagram – @cpuua</a>
-    <a href="https://t.me/xithub" target="_blank">XIT HUB</a>
-    <a href="https://t.me/vxwwo" target="_blank">PRIMEX CORE</a>
-  </div>
-
-  <button class="file-btn" onclick="openModal()">⟶ Downloadable Files</button>
+  <p class="subtitle">Access is earned, not given.</p>  <div class="links">
+    <a href="https://t.me/YXXVI" target="_blank">Telegram – @YXXVI <span>→</span></a>
+    <a href="https://www.instagram.com/cpuua" target="_blank">Instagram – @cpuua <span>→</span></a>
+    <a href="https://t.me/xithub" target="_blank">XIT HUB <span>→</span></a>
+    <a href="https://t.me/vxwwo" target="_blank">PRIMEX CORE <span>→</span></a>
+  </div><button class="file-btn" onclick="openModal()">⟶ Downloadable Files</button>
 
   <div class="modal" id="modal">
-    <div class="close" onclick="closeModal()">&times;</div>
     <div class="modal-content" id="fileList">
-      <p style="color: white;">Loading files...</p>
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p style="text-align:center; color:#666;">Loading files...</p>
     </div>
-  </div>
-
-  <script>
+  </div>  <script>
     const modal = document.getElementById('modal');
     const fileList = document.getElementById('fileList');
 
@@ -188,28 +171,27 @@
 
     function closeModal() {
       modal.style.display = 'none';
-      fileList.innerHTML = '<p style="color:white;">Loading files...</p>';
+      fileList.innerHTML = '<span class="close" onclick="closeModal()">&times;</span><p style="text-align:center; color:#666;">Loading files...</p>';
     }
 
     async function fetchFiles() {
       try {
         const res = await fetch('files.json');
         const files = await res.json();
-        fileList.innerHTML = '';
+        fileList.innerHTML = '<span class="close" onclick="closeModal()">&times;</span>';
         files.forEach(file => {
           const item = document.createElement('div');
           item.className = 'file-item';
           item.innerHTML = `
-            <img src="${file.image}" alt="preview" />
+            <img src="${file.image}" alt="${file.title}" />
             <h3>${file.title}</h3>
             <a href="${file.url}" target="_blank">Download</a>
           `;
           fileList.appendChild(item);
         });
       } catch (err) {
-        fileList.innerHTML = '<p style="color:red;">⚠️ Failed to load files.</p>';
+        fileList.innerHTML += '<p style="color:red; text-align:center;">⚠️ Failed to load files.</p>';
       }
     }
-  </script>
-</body>
-  </html>
+  </script></body>
+                                                            </html>
