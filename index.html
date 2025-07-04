@@ -1,197 +1,154 @@
-<!-- by primex | Verified by the developer primex --><!DOCTYPE html><html lang="en">
+<!-- by primex | Verified by the developer primex -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>𝖯𝖱𝖨𝖬𝖤𝖷</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f7f7;
-      --card: #ffffff;
+      --bg: #000;
+      --text: #fff;
+      --accent: #0ff;
+      --secondary: #444;
+    }
+    body.light {
+      --bg: #fff;
       --text: #111;
-      --subtext: #555;
-      --primary: #007aff;
-      --radius: 20px;
-      --shadow: 0 10px 25px rgba(0,0,0,0.06);
-    }* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--text);
-}
-
-p.subtitle {
-  font-size: 1rem;
-  color: var(--subtext);
-  margin-bottom: 30px;
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  max-width: 420px;
-}
-
-.links a {
-  text-decoration: none;
-  background: var(--card);
-  padding: 14px 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.3s ease;
-  color: var(--text);
-}
-
-.links a:hover {
-  transform: scale(1.02);
-}
-
-.file-btn {
-  margin-top: 35px;
-  padding: 14px 28px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: var(--radius);
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-  box-shadow: var(--shadow);
-}
-
-.file-btn:hover {
-  background: #005fcc;
-}
-
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background: var(--card);
-  width: 90%;
-  max-width: 600px;
-  max-height: 80vh;
-  overflow-y: auto;
-  border-radius: var(--radius);
-  padding: 30px;
-  box-shadow: var(--shadow);
-  position: relative;
-}
-
-.file-item {
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #eee;
-}
-
-.file-item img {
-  max-width: 100px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.file-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-}
-
-.file-item a {
-  color: var(--primary);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #888;
-}
-
-@media(max-width: 500px) {
-  h1 { font-size: 2rem; }
-}
-
+      --accent: #007BFF;
+      --secondary: #ccc;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Orbitron', sans-serif;
+      transition: background 0.4s, color 0.4s;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding: 30px 20px;
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      animation: glow 1.8s ease-in-out infinite alternate;
+    }
+    p.subtitle {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+    .controls {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--secondary);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: var(--accent);
+      color: #000;
+    }
+    .info-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid var(--secondary);
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .info-box h2 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .info-box p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .footer {
+      margin-top: auto;
+      padding: 20px 0;
+      color: var(--secondary);
+      font-size: 0.85rem;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px var(--accent); }
+      to   { text-shadow: 0 0 25px var(--accent); }
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .controls {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
   <h1>𝖯𝖱𝖨𝖬𝖤𝖷</h1>
-  <p class="subtitle">Access is earned, not given.</p>  <div class="links">
-    <a href="https://t.me/YXXVI" target="_blank">Telegram – @YXXVI <span>→</span></a>
-    <a href="https://www.instagram.com/cpuua" target="_blank">Instagram – @cpuua <span>→</span></a>
-    <a href="https://t.me/xithub" target="_blank">XIT HUB <span>→</span></a>
-    <a href="https://t.me/vxwwo" target="_blank">PRIMEX CORE <span>→</span></a>
-  </div><button class="file-btn" onclick="openModal()">⟶ Downloadable Files</button>
+  <p class="subtitle">Access is earned, not given.</p>
 
-  <div class="modal" id="modal">
-    <div class="modal-content" id="fileList">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <p style="text-align:center; color:#666;">Loading files...</p>
-    </div>
-  </div>  <script>
-    const modal = document.getElementById('modal');
-    const fileList = document.getElementById('fileList');
+  <div class="controls">
+    <button onclick="toggleTheme()">☀️ / 🌙 Mode</button>
+    <button onclick="changeText('elite')">Elite Quote</button>
+    <button onclick="changeText('tech')">Tech Quote</button>
+    <button onclick="changeText('life')">Life Quote</button>
+  </div>
 
-    function openModal() {
-      modal.style.display = 'flex';
-      fetchFiles();
+  <div class="info-box" id="info">
+    <h2>Welcome to PRIMEX</h2>
+    <p>This space is reserved for the bold, the curious, and the extraordinary minds. Use the buttons above to explore themes.</p>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 PRIMEX. Designed with precision.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light');
     }
 
-    function closeModal() {
-      modal.style.display = 'none';
-      fileList.innerHTML = '<span class="close" onclick="closeModal()">&times;</span><p style="text-align:center; color:#666;">Loading files...</p>';
+    function changeText(type) {
+      const box = document.getElementById('info');
+      const data = {
+        elite: {
+          title: 'Elite Mindset',
+          text: 'Discipline is the bridge between goals and accomplishment. Access is earned, not given.'
+        },
+        tech: {
+          title: 'Tech Vision',
+          text: 'Innovation is seeing what everybody has seen and thinking what nobody has thought.'
+        },
+        life: {
+          title: 'Life Philosophy',
+          text: 'Simplicity is the ultimate sophistication. Move quiet, strike loud.'
+        }
+      };
+      box.innerHTML = `<h2>${data[type].title}</h2><p>${data[type].text}</p>`;
     }
-
-    async function fetchFiles() {
-      try {
-        const res = await fetch('files.json');
-        const files = await res.json();
-        fileList.innerHTML = '<span class="close" onclick="closeModal()">&times;</span>';
-        files.forEach(file => {
-          const item = document.createElement('div');
-          item.className = 'file-item';
-          item.innerHTML = `
-            <img src="${file.image}" alt="${file.title}" />
-            <h3>${file.title}</h3>
-            <a href="${file.url}" target="_blank">Download</a>
-          `;
-          fileList.appendChild(item);
-        });
-      } catch (err) {
-        fileList.innerHTML += '<p style="color:red; text-align:center;">⚠️ Failed to load files.</p>';
-      }
-    }
-  </script></body>
-                                                            </html>
+  </script>
+</body>
+</html>
