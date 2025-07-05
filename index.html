@@ -6,58 +6,95 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #000;
-      --text-color: #fff;
+      --bg-light: #f6f6f6;
+      --text-light: #111;
+      --bg-dark: #000;
+      --text-dark: #fff;
       --accent: #0ff;
     }
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      width: 100%;
-      height: 100%;
-      background: var(--bg-color);
-      color: var(--text-color);
       font-family: 'Orbitron', sans-serif;
-      scroll-behavior: smooth;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      transition: all 0.3s ease;
     }
-    body {
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+    .topbar {
+      width: 100%;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 40px 20px;
+      padding: 20px;
+    }
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .menu-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
     }
     .header {
+      text-align: center;
       font-size: 3rem;
+      margin-top: 20px;
       letter-spacing: 3px;
-      text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
-      margin-bottom: 10px;
     }
     .desc {
-      color: #aaa;
+      text-align: center;
       margin-bottom: 40px;
       font-size: 1.1rem;
+      color: #777;
+    }
+    .panel {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 280px;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      color: white;
+      z-index: 1000;
+      padding: 30px 20px;
+      transition: left 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .panel.open {
+      left: 0;
+    }
+    .panel button {
+      background: transparent;
+      border: 1px solid #555;
+      padding: 10px;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
     }
     .links {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      width: 100%;
-      max-width: 800px;
+      padding: 0 20px;
     }
     .card {
       background: #111;
-      border: 1px solid #333;
-      border-radius: 16px;
       padding: 20px;
-      transition: 0.3s ease;
+      border-radius: 16px;
+      border: 1px solid #333;
+      transition: 0.3s;
     }
     .card:hover {
-      border-color: #555;
       transform: translateY(-5px);
+      border-color: #555;
     }
     .card h3 {
       font-size: 1.2rem;
@@ -72,26 +109,17 @@
       display: inline-block;
       padding: 8px 14px;
       background: #0ff2;
-      color: var(--text-color);
+      color: white;
       text-decoration: none;
       border-radius: 10px;
-      font-size: 0.9rem;
-      transition: 0.3s;
-    }
-    .card a:hover {
-      background: #0ff4;
     }
     .search-section {
-      margin-top: 50px;
-      width: 100%;
-      max-width: 500px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+      margin-top: 40px;
+      padding: 0 20px;
     }
     .search-section input {
       width: 100%;
+      max-width: 400px;
       padding: 12px;
       border-radius: 10px;
       border: 1px solid #333;
@@ -102,9 +130,9 @@
     .file-results {
       margin-top: 20px;
       display: grid;
-      width: 100%;
       gap: 20px;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      padding: 0 20px;
     }
     .file-item {
       background: #1a1a1a;
@@ -112,10 +140,9 @@
       border-radius: 15px;
       border: 1px solid #333;
       text-align: center;
-      transition: all 0.3s ease;
     }
     .file-item img {
-      max-width: 100%;
+      width: 100%;
       height: 120px;
       object-fit: cover;
       border-radius: 10px;
@@ -129,15 +156,22 @@
       color: #4fc3f7;
       text-decoration: none;
     }
-    footer {
-      margin-top: 50px;
-      font-size: 0.8rem;
-      color: #555;
-    }
   </style>
 </head>
 <body>
-  <div class="header">PRIMEX</div>
+  <div class="topbar">
+    <button class="menu-btn" onclick="toggleMenu()">
+      <svg viewBox="0 0 100 80" width="40" height="40">
+        <rect width="100" height="10"></rect>
+        <rect y="30" width="100" height="10"></rect>
+        <rect y="60" width="100" height="10"></rect>
+      </svg>
+    </button>
+  </div>  <div class="panel" id="sidePanel">
+    <button onclick="toggleDark()">Toggle Light / Dark</button>
+    <button onclick="alert('Coming soon: Language switch')">Language: EN</button>
+    <button onclick="alert('To download a file, type the keyword in the search box.')">How to Download</button>
+  </div>  <div class="header">PRIMEX</div>
   <p class="desc">Access is earned, not given.</p>  <div class="links">
     <div class="card">
       <h3>Telegram</h3>
@@ -162,9 +196,13 @@
   </div>  <div class="search-section">
     <input type="text" id="searchInput" placeholder="Enter Access Code" oninput="searchFiles()">
     <div class="file-results" id="fileResults"></div>
-  </div>  <footer>
-    © PRIMEX | Verified by the developer primex
-  </footer>  <script src="data.js"></script>  <script>
+  </div>  <script src="data.js"></script>  <script>
+    function toggleMenu() {
+      document.getElementById('sidePanel').classList.toggle('open');
+    }
+    function toggleDark() {
+      document.body.classList.toggle('light');
+    }
     function searchFiles() {
       const query = document.getElementById('searchInput').value.toLowerCase();
       const resultBox = document.getElementById('fileResults');
