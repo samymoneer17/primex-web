@@ -4,7 +4,7 @@ window.files = [
   {
     keyword: "aim drag",
     title: "free fire aim drag",
-    image: "<a href='https://postimg.cc/9zT2jgt8' target='_blank'><img src='https://i.postimg.cc/9zT2jgt8/20250705-202104.jpg' border='0' alt='20250705-202104'/></a>",
+    image: "https://i.postimg.cc/G3gmGZBC/20250705-202104.jpg",
     url: "https://www.mediafire.com/file/4o35uvuvjvlxxki/AIM+DRAG+80+%+-+VIP+❗.7z/file"
   },
   {
