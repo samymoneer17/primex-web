@@ -1,183 +1,210 @@
-<!-- by primex | Verified by the developer primex -->
-<!DOCTYPE html>
-<html lang="en">
+<!-- by primex | Verified by the developer primex --><!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>𝖯𝖱𝖨𝖬𝖤𝖷</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      width: 100%;
-      height: 100%;
-      background: #000;
-      color: #fff;
-      font-family: 'Orbitron', sans-serif;
-      scroll-behavior: smooth;
-    }
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 40px 20px;
-    }
-    h1 {
-      font-size: 4rem;
-      letter-spacing: 4px;
-      animation: glow 1.5s ease-in-out infinite alternate;
-      margin-bottom: 10px;
-    }
-    p {
-      color: #888;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-    }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      max-width: 400px;
-    }
-    .links a {
-      text-decoration: none;
-      background: transparent;
-      border: 1px solid #555;
-      padding: 12px;
-      text-align: center;
-      border-radius: 15px;
-      color: #fff;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .links a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(255,255,255,0.1);
-      transition: all 0.4s ease;
-    }
-    .links a:hover::before {
-      left: 0;
-    }
-    .links a:hover {
-      border-color: #999;
-    }
-    .file-btn {
-      background: #111;
-      color: #fff;
-      border: 1px solid #555;
-      padding: 12px 24px;
-      border-radius: 15px;
-      cursor: pointer;
-      margin-top: 30px;
-      transition: background 0.3s ease;
-    }
-    .file-btn:hover {
-      background: #222;
-    }
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      flex-direction: column;
-      padding: 30px;
-    }
-    .modal-content {
-      max-width: 900px;
-      width: 100%;
-      max-height: 80vh;
-      overflow-y: auto;
-      background: #111;
-      padding: 25px;
-      border-radius: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .file-item {
-      background: #1a1a1a;
-      padding: 15px;
-      border-radius: 15px;
-      border: 1px solid #333;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .file-item:hover {
-      transform: translateY(-5px);
-      border-color: #555;
-    }
-    .file-item img {
-      max-width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-    .file-item h3 {
-      margin: 10px 0;
-      font-size: 1.1rem;
-      color: #fff;
-    }
-    .file-item a {
-      color: #4fc3f7;
-      text-decoration: none;
-    }
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2.5rem;
-      color: #fff;
-      cursor: pointer;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #0ff; }
-      to   { text-shadow: 0 0 25px #0ff; }
-    }
-    @media(max-width: 600px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-    }
+    :root {
+      --bg-color: #000;
+      --text-color: #fff;
+      --secondary-text: #888;
+      --border-color: #555;
+      --hover-color: #999;
+      --modal-bg: rgba(0, 0, 0, 0.95);
+    }.light-mode {
+  --bg-color: #f9f9f9;
+  --text-color: #111;
+  --secondary-text: #555;
+  --border-color: #ccc;
+  --hover-color: #000;
+  --modal-bg: rgba(255, 255, 255, 0.95);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Orbitron', sans-serif;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+h1 {
+  font-size: 4rem;
+  letter-spacing: 4px;
+  animation: glow 1.5s ease-in-out infinite alternate;
+  margin-bottom: 10px;
+}
+p {
+  color: var(--secondary-text);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+.links a {
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  text-align: center;
+  border-radius: 15px;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.links a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.4s ease;
+}
+.links a:hover::before {
+  left: 0;
+}
+.links a:hover {
+  border-color: var(--hover-color);
+}
+.file-btn {
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 12px 24px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+}
+.file-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--modal-bg);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+  padding: 30px;
+}
+.modal-content {
+  max-width: 900px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: var(--bg-color);
+  padding: 25px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.file-item {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #333;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.file-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--hover-color);
+}
+.file-item img {
+  max-width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.file-item h3 {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+.file-item a {
+  color: #4fc3f7;
+  text-decoration: none;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.theme-toggle:hover {
+  background: var(--hover-color);
+  color: var(--bg-color);
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px #0ff; }
+  to   { text-shadow: 0 0 25px #0ff; }
+}
+@media(max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
   </style>
 </head>
 <body>
-  <h1>𝖯𝖱𝖨𝖬𝖤𝖷</h1>
-  <p>Access is earned, not given.</p>
-
-  <div class="links">
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>  <h1>𝖯𝖱𝖨𝖬𝖤𝖷</h1>
+  <p>Access is earned, not given.</p>  <div class="links">
     <a href="https://t.me/YXXVI" target="_blank">Telegram – @YXXVI</a>
     <a href="https://www.instagram.com/cpuua" target="_blank">Instagram – @cpuua</a>
     <a href="https://t.me/xithub" target="_blank">XIT HUB</a>
     <a href="https://t.me/vxwwo" target="_blank">PRIMEX CORE</a>
-  </div>
-
-  <button class="file-btn" onclick="openModal()">⟶ Downloadable Files</button>
+  </div><button class="file-btn" onclick="openModal()">⟶ Downloadable Files</button>
 
   <div class="modal" id="modal">
     <div class="close" onclick="closeModal()">&times;</div>
     <div class="modal-content" id="fileList">
-      <p style="color: white;">Loading files...</p>
+      <p style="color: var(--text-color);">Loading files...</p>
     </div>
-  </div>
-
-  <script>
+  </div>  <script>
     const modal = document.getElementById('modal');
     const fileList = document.getElementById('fileList');
 
@@ -188,7 +215,7 @@
 
     function closeModal() {
       modal.style.display = 'none';
-      fileList.innerHTML = '<p style="color:white;">Loading files...</p>';
+      fileList.innerHTML = '<p style="color: var(--text-color);">Loading files...</p>';
     }
 
     async function fetchFiles() {
@@ -210,6 +237,9 @@
         fileList.innerHTML = '<p style="color:red;">⚠️ Failed to load files.</p>';
       }
     }
-  </script>
-</body>
-</html>
+
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script></body>
+  </html>
