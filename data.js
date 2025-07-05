@@ -2,10 +2,10 @@
 
 window.files = [
   {
-    keyword: "storm",
-    title: "Storm Network Tool",
-    image: "assets/storm.png",
-    url: "https://yourcdn.com/files/storm_tool.zip"
+    keyword: "aim drag",
+    title: "free fire aim drag",
+    image: "https://ibb.co/0v3Ngwq",
+    url: "https://www.mediafire.com/file/4o35uvuvjvlxxki/AIM+DRAG+80+%+-+VIP+❗.7z/file"
   },
   {
     keyword: "inject",
