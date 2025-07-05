@@ -1,0 +1,28 @@
+// data.js — by primex | Verified by the developer primex
+
+window.files = [
+  {
+    keyword: "storm",
+    title: "Storm Network Tool",
+    image: "assets/storm.png",
+    url: "https://yourcdn.com/files/storm_tool.zip"
+  },
+  {
+    keyword: "inject",
+    title: "APK Injector v3",
+    image: "assets/injector.png",
+    url: "https://yourcdn.com/files/injector_v3.apk"
+  },
+  {
+    keyword: "shadowvpn",
+    title: "Shadow VPN Config Pack",
+    image: "assets/shadowvpn.jpg",
+    url: "https://yourcdn.com/files/shadowvpn_configs.rar"
+  },
+  {
+    keyword: "terminal",
+    title: "Primex Terminal CLI",
+    image: "assets/terminal_ui.png",
+    url: "https://yourcdn.com/files/primex_terminal.zip"
+  }
+];
