@@ -2,10 +2,10 @@
 
 window.files = [
   {
-    keyword: "aim drag",
-    title: "free fire aim drag",
+    keyword: "aim lock",
+    title: "free fire aim lock",
     image: "https://i.postimg.cc/G3gmGZBC/20250705-202104.jpg",
-    url: "https://www.mediafire.com/file/rd7p0tb1tewj8ux/AIM_DRAG_80_%2525_-_VIP_%25E2%259D%2597.7z/file"
+    url: "https://www.mediafire.com/file/lxk7blnubhp9kwy/aim_lock_..7z/file"
   },
   {
     keyword: "inject",
