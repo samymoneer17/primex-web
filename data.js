@@ -2,10 +2,10 @@
 
 window.files = [
   {
-    keyword: "aim lock",
-    title: "free fire aim lock",
-    image: "https://i.postimg.cc/G3gmGZBC/20250705-202104.jpg",
-    url: "https://www.mediafire.com/file/lxk7blnubhp9kwy/aim_lock_..7z/file"
+    keyword: "hologram",
+    title: "new free fire update hologram",
+    image: "",
+    url: "https://www.mediafire.com/file/b9mphuxeatirs2z/New_update_hologram.7z/file"
   },
   {
     keyword: "inject",
